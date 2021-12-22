@@ -9,13 +9,13 @@ public class Person {
     private String name;
     private int age;
 
-    public void birthday(int age) {
+    public void birthday() {
         System.out.println(age);
         age++;
     }
 
     public boolean takeBeer(int age) {
-        if (age > 18) return true;
+        if (age >= 18) return true;
         else return false;
     }
 }
