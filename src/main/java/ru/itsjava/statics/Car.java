@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class Car {
     public final String brand;
-    public final String colour;
-    public static double priceCar = 100_000.0;
+    public String colour;
+    public static double priceCar;
 
 //    public void setbrand(String s) {
 //        this.brand = s;

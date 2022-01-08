@@ -12,14 +12,16 @@ public class Person implements Comparable<Person> {
 
     @Override
     public int compareTo(Person person) {
-        if (name == person.name) {
+        if (surname.equals(person.surname) && (name.equals(person.name))) {
+            return (int) (age - person.age);
+        } else if (!surname.equals(person.surname)) {
+            return -1;
+        } else if (!name.equals(person.name)) {
+        }
             return 0;
-        } else if (surname == person.surname) {
-            return 1;
-        } else return (int) (age - person.age);
-
     }
-
-
 }
+
+
+
 

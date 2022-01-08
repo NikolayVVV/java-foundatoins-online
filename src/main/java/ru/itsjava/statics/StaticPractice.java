@@ -1,5 +1,6 @@
 package ru.itsjava.statics;
 
+import static ru.itsjava.statics.Car.priceCar;
 
 public class StaticPractice {
 
@@ -21,9 +22,11 @@ public class StaticPractice {
         //Car
         Car bentley = new Car("Бентли", "черный");
         Car giguli = new Car("Жигули", "ржавая");
+        bentley.colour = "белый";
+        priceCar = 25_00.0;
 
-        System.out.println(bentley.brand + " " + bentley.colour + " " + bentley.priceCar);
-        System.out.println(giguli.brand + " " + giguli.colour + " " + giguli.priceCar);
+        System.out.println(bentley.brand + " " + bentley.colour + " " + priceCar);
+        System.out.println(giguli.brand + " " + giguli.colour + " " + priceCar);
 
 //        bentley.setbrand("Мерседес");
 //        System.out.println(bentley.brand + " " + bentley.colour + " " + bentley.priceCar);

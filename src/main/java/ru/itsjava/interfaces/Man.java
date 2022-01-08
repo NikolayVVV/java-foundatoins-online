@@ -1,6 +1,6 @@
 package ru.itsjava.interfaces;
 
-public class Man implements Runnable, Swimable, Walkable, Flyable{
+public class Man implements Runnable, Swimable, Walkable, Flyable, Talkable,Eatable{
     @Override
     public void run() {
         System.out.println("Человек может бегать");
@@ -34,5 +34,15 @@ public class Man implements Runnable, Swimable, Walkable, Flyable{
     @Override
     public String flyMaxDistance() {
         return "Длина полета на самолете зависит от его характеристик";
+    }
+
+    @Override
+    public void Talk() {
+        System.out.println("Человек говорит");
+    }
+
+    @Override
+    public void Eat() {
+        System.out.println("Человек ест");
     }
 }

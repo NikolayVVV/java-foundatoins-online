@@ -3,12 +3,14 @@ package ru.itsjava.interfaces;
 public class InterfacesPractice {
 
     public static void main(String[] args) {
-        Creatable khotabich = new Gin();
-        khotabich.createWish();
-
-        Creatable badGin = new BadGin();
-        badGin.createWish();
-        System.out.println();
+//        Creatable khotabich = new Gin();
+//        khotabich.createWish();
+//
+//        Creatable badGin = new BadGin();
+//        badGin.createWish();
+//        System.out.println();
+//        khotabich.canYouCreateWish();
+//        badGin.canYouCreateWish();
 
         //ДОМАШКА
         Runnable runningPerson = new Man();
@@ -33,6 +35,19 @@ public class InterfacesPractice {
         System.out.println(woody.flyMaxDistance());
         nemo.swim();
         System.out.println("Рыба максимально проплывет " + nemo.maxSwimSpeed() + " метров");
+
+        Eatable eatingPerson = new Man();
+        Talkable talkingPerson = new Man();
+        Eatable eatingCow = new Cow();
+        Talkable talkingCow = new Cow();
+        Eatable eatingPlant = new Plant();
+        Talkable talkingPlant = new Plant();
+        eatingPerson.Eat();
+        talkingPerson.Talk();
+        eatingCow.Eat();
+        talkingCow.Talk();
+        eatingPlant.Eat();
+        talkingPlant.Talk();
 
 
     }

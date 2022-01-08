@@ -46,7 +46,7 @@ public class PersonTest {
     @Test
     public void shouldHaveCorrectMethodTakeBeer() {
         Person actualPerson = new Person(DEFAULT_NAME, DEFAULT_AGE);
-        actualPerson.takeBeer(15);
-        assertFalse(false, String.valueOf(actualPerson.takeBeer(15)));
+//        actualPerson.takeBeer(15);
+        assertFalse(actualPerson.takeBeer(15));
     }
 }
