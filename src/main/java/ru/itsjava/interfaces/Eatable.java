@@ -1,7 +1,7 @@
 package ru.itsjava.interfaces;
 
 public interface Eatable {
-    default void Eat(){
+    default void eat(){
         System.out.println("Кушать");
     }
 }

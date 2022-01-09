@@ -37,12 +37,12 @@ public class Man implements Runnable, Swimable, Walkable, Flyable, Talkable,Eata
     }
 
     @Override
-    public void Talk() {
+    public void talk() {
         System.out.println("Человек говорит");
     }
 
     @Override
-    public void Eat() {
+    public void eat() {
         System.out.println("Человек ест");
     }
 }

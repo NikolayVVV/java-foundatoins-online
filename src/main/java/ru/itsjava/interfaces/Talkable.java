@@ -1,7 +1,7 @@
 package ru.itsjava.interfaces;
 
 public interface Talkable {
-    default void Talk(){
+    default void talk(){
         System.out.println("Говорить");
     }
 }

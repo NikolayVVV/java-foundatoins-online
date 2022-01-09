@@ -42,12 +42,12 @@ public class InterfacesPractice {
         Talkable talkingCow = new Cow();
         Eatable eatingPlant = new Plant();
         Talkable talkingPlant = new Plant();
-        eatingPerson.Eat();
-        talkingPerson.Talk();
-        eatingCow.Eat();
-        talkingCow.Talk();
-        eatingPlant.Eat();
-        talkingPlant.Talk();
+        eatingPerson.eat();
+        talkingPerson.talk();
+        eatingCow.eat();
+        talkingCow.talk();
+        eatingPlant.eat();
+        talkingPlant.talk();
 
 
     }

@@ -2,12 +2,12 @@ package ru.itsjava.interfaces;
 
 public class Cow implements Talkable, Eatable{
     @Override
-    public void Eat() {
+    public void eat() {
         System.out.println("Корова ест");
     }
 
     @Override
-    public void Talk() {
+    public void talk() {
         System.out.println("Корова мычит");
     }
 }
