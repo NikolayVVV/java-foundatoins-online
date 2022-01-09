@@ -6,19 +6,20 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Person implements Comparable<Person> {
-    private final String name;
     private final String surname;
+    private final String name;
     private double age;
 
     @Override
     public int compareTo(Person person) {
-        if (surname.equals(person.surname) && (name.equals(person.name))) {
-            return (int) (age - person.age);
-        } else if (!surname.equals(person.surname)) {
-            return -1;
-        } else if (!name.equals(person.name)) {
+        int result = surname.compareTo(person.surname);
+        if (result == 0) {
+            result = name.compareTo(person.name);
         }
-            return 0;
+        if (result == 0) {
+            result = (int) (age - person.age);
+        }
+        return result;
     }
 }
 
