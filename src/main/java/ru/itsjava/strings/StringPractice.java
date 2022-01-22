@@ -1,6 +1,9 @@
 package ru.itsjava.strings;
 
+import ru.itsjava.interfaces.comparable.Boy;
+
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.Locale;
 
 public class StringPractice {
