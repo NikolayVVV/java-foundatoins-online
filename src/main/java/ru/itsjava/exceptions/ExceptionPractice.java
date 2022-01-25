@@ -43,8 +43,7 @@ public class ExceptionPractice {
 //            ce.printStackTrace();
 //        }
         Person nikolay = new Person("Nikolay", 26);
-
-        nikolay.AgeNotValidException(155);
+        nikolay.AgeNotValid(155);
 
 
     }

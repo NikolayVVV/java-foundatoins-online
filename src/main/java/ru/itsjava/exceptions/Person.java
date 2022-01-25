@@ -9,11 +9,15 @@ public class Person {
         this.age = age;
     }
 
-    public void AgeNotValidException(int age) throws Exception {
+
+    public void AgeNotValid(int age) {
         if (age < 0 || age > 150){
-            throw new Exception("возраст меньше нуля или возраст больше 150");
+            try {
+                throw new AgeNotValidException();
+            } catch (AgeNotValidException e) {
+                System.out.println("возраст меньше нуля или больше 150");
+            }
         }
+        else System.out.println("возраст корректен");
     }
-
-
 }
