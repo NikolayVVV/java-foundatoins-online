@@ -48,8 +48,8 @@ public class ArrayListPractice {
         System.out.println("watchesList = " + watchesList);
 
         //BOOK
-        //ArrayList <Book> booksList = new ArrayList<>(); а). Создать пустой список книг
-        ArrayList<Book> booksList = new ArrayList<>(20);//б). Создать список размером 20
+        //List <Book> booksList = new ArrayList<>(); а). Создать пустой список книг
+        List<Book> booksList = new ArrayList<>(20);//б). Создать список размером 20
         Book book1 = new Book("Lord of the Rings", "Tolkien", 1500);
         Book book2 = new Book("Harry Potter", "Rouling", 900);
         Book book3 = new Book("The Sea Wolf", "London", 100);
@@ -69,7 +69,10 @@ public class ArrayListPractice {
         booksList2.addAll(booksList);//в) Записать в новый список все элементы предыдущего списка.
         System.out.println("booksList2 = " + booksList2);
         System.out.println("booksList2.get(0) = " + booksList2.get(0));//2.а). Получить первый элемент (первую книгу в списке)
-        System.out.println("booksList2.get(6) = " + booksList2.get(6));//2.б). Получить последний элемент (последнюю книгу в списке)
+        System.out.println("2.б)Получить последний элемент (последнюю книгу в списке)");
+        System.out.println("booksList2.get(booksList2.size()-1) = " + booksList2.get(booksList2.size() - 1));
+        System.out.println("booksList2.get(6) = " + booksList2.get(6));
+        System.out.println("booksList2.size() = " + booksList2.size());
         booksList2.remove(book5);//3.а) Удалить элемент по значению (книге)
         booksList2.remove(0);//б) Удалить элемент по индексу
         System.out.println("booksList2 = " + booksList2);
@@ -164,12 +167,14 @@ public class ArrayListPractice {
 
         System.out.println("11. Найти средний возраст всех женщин.");
         int sumAge = 0;
+        int countWomen = 0;
         for (int i = 0; i < personList.size(); i++) {
             if (!personList.get(i).isMale()) {
+                countWomen++;
                 sumAge = sumAge + personList.get(i).getAge();
             }
         }
-        System.out.println(sumAge / 3);
+        System.out.println(sumAge / countWomen);
 
 
     }
