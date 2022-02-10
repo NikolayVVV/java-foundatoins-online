@@ -70,29 +70,43 @@ public class MyArrayList {
     public void clear() {
         for (int i = 0; i < array.length; i++) {
             array[i] = null;
-            realSize = 0;
         }
+        realSize = 0;
     }
 
     public Object get(int index) {
-        return null;
+        checkIndex(index);
+        return array[index];
     }
 
     public Object set(int index, Object element) {
+        checkIndex(index);
+        array[index] = element;
         return null;
     }
 
     public void add(int index, Object element) {
-
+        checkIndex(index);
+        if (realSize == array.length) {
+            Object[] resArray = new Object[array.length * 3 / 2 + 1];
+            //копирование массива
+            System.arraycopy(array, 0, resArray, 0, index);
+            System.arraycopy(array, index, resArray, index + 1, realSize - index);
+            array = resArray;
+            //вставка нашего элемента
+        } else {
+            System.arraycopy(array, index, array, index + 1, realSize - index);
+        }
+        array[index] = element;
+        realSize++;
     }
 
     public Object remove(int index) {
         checkIndex(index);
 
         Object resElement = array[index];
-        if (array.length - 1 - index >= 0) {
-            System.arraycopy(array, index + 1, array, index, array.length - 1 - index);
-        }
+        System.arraycopy(array, index + 1, array, index, realSize - index);
+        array[realSize-1] = null;
         realSize--;
         return resElement;
     }
@@ -104,7 +118,7 @@ public class MyArrayList {
     }
 
     private boolean isCorrectIndex(int index) {
-        if ((index > -1) || (index < realSize)) {
+        if ((index > -1) && (index < realSize)) {
             return true;
         }
         return false;
@@ -119,6 +133,10 @@ public class MyArrayList {
     }
 
     public int lastIndexOf(Object o) {
+        for (int i = array.length - 1; i >= 0; i--) {
+            if (array[i] == o)
+                return i;
+        }
         return 0;
     }
 
