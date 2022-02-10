@@ -82,7 +82,7 @@ public class MyArrayList {
     public Object set(int index, Object element) {
         checkIndex(index);
         array[index] = element;
-        return null;
+        return element;
     }
 
     public void add(int index, Object element) {

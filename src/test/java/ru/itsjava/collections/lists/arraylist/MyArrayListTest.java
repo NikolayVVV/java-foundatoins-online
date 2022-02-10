@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Класс MyArrayListTest должен ")
 public class MyArrayListTest {
-//    private static final int DEFAULT_CAPACITY = 10;
+    //    private static final int DEFAULT_CAPACITY = 10;
 //    private static final int DEFAULT_REALSIZE = 0;
     private final MyArrayList DEFAULT_LIST = new MyArrayList();
 
@@ -38,6 +38,7 @@ public class MyArrayListTest {
     public void shouldHaveCorrectAddElementToArray() {
         DEFAULT_LIST.add("element3");
         assertEquals(true, DEFAULT_LIST.contains("element3"));
+        assertEquals(1, DEFAULT_LIST.size());
     }
 
     @DisplayName(" корректно удалять элемент из массива")
@@ -46,6 +47,7 @@ public class MyArrayListTest {
         DEFAULT_LIST.add("element1");
         DEFAULT_LIST.remove("element1");
         assertEquals(false, DEFAULT_LIST.contains("element1"));
+        assertEquals(0, DEFAULT_LIST.size());
     }
 
     @DisplayName(" корректно удалять все элементы в массиве")
@@ -58,6 +60,7 @@ public class MyArrayListTest {
         assertEquals(false, DEFAULT_LIST.contains("element1"));
         assertEquals(false, DEFAULT_LIST.contains("element2"));
         assertEquals(false, DEFAULT_LIST.contains("element3"));
+        assertEquals(0, DEFAULT_LIST.size());
     }
 
     @DisplayName(" корректно получить элемент из массива по индексу")
@@ -71,7 +74,8 @@ public class MyArrayListTest {
     @Test
     public void shouldHaveCorrectSetElementFromArrayOnIndex() {
         DEFAULT_LIST.add("element1");
-        assertEquals("element1", DEFAULT_LIST.get(0));
+        DEFAULT_LIST.set(0, "ELEMENT2");
+        assertEquals("ELEMENT2", DEFAULT_LIST.get(0));
     }
 
     @DisplayName(" корректно добавлять элемент в массив по индексу")
@@ -82,6 +86,7 @@ public class MyArrayListTest {
         DEFAULT_LIST.add("element3");
         DEFAULT_LIST.add(1, "ELEMENT");
         assertEquals("ELEMENT", DEFAULT_LIST.get(1));
+        assertEquals(4, DEFAULT_LIST.size());
     }
 
     @DisplayName(" корректно удалять элемент из массива по индексу")
@@ -90,6 +95,7 @@ public class MyArrayListTest {
         DEFAULT_LIST.add("element1");
         DEFAULT_LIST.remove(0);
         assertEquals(false, DEFAULT_LIST.contains("element1"));
+        assertEquals(0, DEFAULT_LIST.size());
     }
 
     @DisplayName(" корректно получать индекс указанного элемента из массива")
