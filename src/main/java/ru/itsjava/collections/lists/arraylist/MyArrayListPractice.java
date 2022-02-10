@@ -55,14 +55,19 @@ public class MyArrayListPractice {
         list.add("element2");
         list.add("element3");
         list.add("element4");
-        list.add("element1");
-        System.out.println("list = " + list);
-        list.add(5,"ELEMENT5");
+        list.add(3,"element5");
         System.out.println(list);
-        list.add(0,"ELEMENT5");
-        System.out.println(list);
-        list.add(3,"HELLO");
-        System.out.println(list);
+//        list.add("element1");
+//        System.out.println("list = " + list);
+//        list.add(4,"ELEMENT5");
+//        System.out.println(list);
+//        list.add(0,"ELEMENT5");
+//        System.out.println(list);
+//        list.add(3,"HELLO");
+//        System.out.println(list);
+//        list.remove(5);
+//        System.out.println(list);
+
 
 
 //        System.out.println("list.lastIndexOf(\"element1\") = " + list.lastIndexOf("element1"));

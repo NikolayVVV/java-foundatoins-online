@@ -106,7 +106,7 @@ public class MyArrayList {
 
         Object resElement = array[index];
         System.arraycopy(array, index + 1, array, index, realSize - index);
-        array[realSize-1] = null;
+        array[realSize - 1] = null;
         realSize--;
         return resElement;
     }
@@ -150,4 +150,5 @@ public class MyArrayList {
         stringBuilder.append('}');
         return stringBuilder.toString();
     }
+
 }
