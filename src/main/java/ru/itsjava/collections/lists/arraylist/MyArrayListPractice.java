@@ -1,5 +1,7 @@
 package ru.itsjava.collections.lists.arraylist;
 
+import java.util.Arrays;
+
 public class MyArrayListPractice {
 
     public static void main(String[] args) {
@@ -55,8 +57,11 @@ public class MyArrayListPractice {
         list.add("element2");
         list.add("element3");
         list.add("element4");
-        list.add(3,"element5");
-        System.out.println(list);
+        System.out.println("list.remove(3) = " + list.remove(3));
+        System.out.println("list = " + list);
+        int[] array = new int[10];
+        System.out.println("Arrays.toString(array) = " + Arrays.toString(array));
+        System.out.println("array.length = " + array.length);
 //        list.add("element1");
 //        System.out.println("list = " + list);
 //        list.add(4,"ELEMENT5");

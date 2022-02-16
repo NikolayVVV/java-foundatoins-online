@@ -46,7 +46,7 @@ public class MyArrayList {
     }
 
 
-    public boolean remove(Object o) {
+    public boolean remove(Object o) {//разобрал
         int delIndex = -1;
         for (int i = 0; i < array.length; i++) {
             if (array[i] != null && array[i].equals(o)) {
@@ -85,7 +85,7 @@ public class MyArrayList {
         return element;
     }
 
-    public void add(int index, Object element) {
+    public void add(int index, Object element) {  //разобрал
         checkIndex(index);
         if (realSize == array.length) {
             Object[] resArray = new Object[array.length * 3 / 2 + 1];
@@ -101,12 +101,12 @@ public class MyArrayList {
         realSize++;
     }
 
-    public Object remove(int index) {
+    public Object remove(int index) { //разобрал
         checkIndex(index);
 
         Object resElement = array[index];
         System.arraycopy(array, index + 1, array, index, realSize - index);
-        array[realSize - 1] = null;
+//        array[realSize - 1] = null;
         realSize--;
         return resElement;
     }
