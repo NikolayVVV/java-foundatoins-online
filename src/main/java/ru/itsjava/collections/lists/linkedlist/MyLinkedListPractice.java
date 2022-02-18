@@ -18,6 +18,9 @@ public class MyLinkedListPractice {
         System.out.println("list.isEmpty() = " + list.isEmpty());
         System.out.println("list.contains(\"Строка 3\") = " + list.contains("Строка 3"));
         System.out.println("list = " + list);
+//        System.out.println("list.get(2) = " + list.get(2));
+        System.out.println("list.set(1,\"СТРОКА 2\") = " + list.set(1, "СТРОКА 2"));
+        System.out.println("list = " + list);
 
 
     }
