@@ -29,8 +29,17 @@ public class MyLinkedList {
 
     public boolean contains(Object o) {
         if (head == o) {
+            return true;
+        } else {
+            Node curNode = head;
+            while (!(curNode.getNext() == null)) {
+                curNode = curNode.getNext();
+                if (curNode.getValue() == o) {
+                    return true;
+                }
+            }
         }
-        return true;
+        return false;
     }
 
     public boolean add(Object o) {
