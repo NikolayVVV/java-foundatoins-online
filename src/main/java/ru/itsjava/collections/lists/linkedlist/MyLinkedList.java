@@ -85,19 +85,19 @@ public class MyLinkedList {
     public Object set(int index, Object element) {
         checkIndex(index);
         if (index == 0) {
-            head = (Node) element;
+            head.setValue(element);
         } else {
             Node curNode = head;
             int count = 0;
-            while ((curNode = curNode.getNext()) != null) {
+            while (!((curNode = curNode.getNext()) == null)) {
                 count++;
                 if (count == index) {
                     break;
                 }
-                curNode = (Node) element;
             }
+            curNode.setValue(element);
         }
-        return element;
+        return true;
     }
 
     public void add(int index, Object element) {
