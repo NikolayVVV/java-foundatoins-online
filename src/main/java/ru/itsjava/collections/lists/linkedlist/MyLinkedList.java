@@ -56,8 +56,34 @@ public class MyLinkedList {
         return true;
     }
 
-    public boolean remove(Object o) {
-        return false;
+    public boolean remove(Object o) {//Сначала мы проверяем 1 элемент (т.е. head) и если он равен null то
+        if (head == null) return false;//соответственно мы и удалить ничего не можем, поэтому и возвращаем false
+
+        if (head.getValue().equals(o)) {//если все таки head равен обьекту,
+            head = head.getNext();//то мы присваиваем head-у следующий элемент по порядку
+            return true;//
+        }
+//далее мы создадим curNode и prevNode, но перед этим мы должны проверить если вообще кроме head-а другие элементы
+        if (head.getNext() == null) return false;//в списке и если их нет, то проверять нечего и возвратим false
+
+        Node curNode = head;//здесь мы уже создаем curNode и prevNode и ссылаемся на head
+        Node prevNode = head;
+
+        while ((curNode = curNode.getNext()) != null) {//здесь мы бежим по списку до последнего элемента и если
+            if (curNode.getValue().equals(o)) {//curNode равен указанному объекту то мы останавливаемся
+                break;
+            }
+            prevNode = prevNode.getNext();//в каждой итерации мы должны продвигать prevNode тоже, т.к. они идут
+        }//друг за другом, т.е. prevNode идет за curNode
+
+        if (curNode == null) return false;//здесь мы делаем проверку, т.е. если мы пробежали по всему списку и в нем нет
+//указанного объекта, т.е. мы получается встали на null, то мы возвращаем false иначе будет ошибка, т.к. у null нельзя
+// вызвать какие-либо значения null и будет ошибка nullpointerexception
+        prevNode.setNext(curNode.getNext());//если все нормально, то тогда мы перенаправляем ссылку у prevNode
+        //на тот элемент который был перед curNode по порядку
+        curNode.setNext(null);// а у curNode мы зануляем ссылку, т.е. он больше ни на что ссылаться не будет и
+        //будет удален сборщиком мусора
+        return true;
     }
 
     public void clear() {
@@ -97,7 +123,7 @@ public class MyLinkedList {
             }
             curNode.setValue(element);
         }
-        return true;
+        return element;
     }
 
     public void add(int index, Object element) {
