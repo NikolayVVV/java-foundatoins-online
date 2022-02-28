@@ -28,16 +28,13 @@ public class MyLinkedList {
 
 
     public boolean contains(Object o) {
-        if (head == o) {
-            return true;
-        } else {
-            Node curNode = head;
-//            if (curNode == null) return false;
-            while (!(curNode.getNext() == null)) {
-                curNode = curNode.getNext();
-                if (curNode.getValue() == o) {
-                    return true;
-                }
+        if (head == null) return false;
+        if (head.getValue().equals(o)) return true;
+        Node curNode = head;
+        while (!(curNode.getNext() == null)) {
+            curNode = curNode.getNext();
+            if (curNode.getValue().equals(o)) {
+                return true;
             }
         }
         return false;
@@ -129,6 +126,22 @@ public class MyLinkedList {
 
     public void add(int index, Object element) {
         checkIndex(index);
+        Node resNode = new Node(element, head);
+        if (index == 0) {
+            head = resNode;
+        } else {
+            Node curNode = head;
+            Node prevNode = head;
+            int count = 0;
+            while ((curNode = curNode.getNext()) != null) {
+                count++;
+                if (count == index) {
+                    break;
+                }
+            }
+            resNode.setNext(prevNode.getNext());
+            prevNode.setNext(resNode);
+        }
     }
 
     // СТРОКА1 -> null
@@ -200,25 +213,18 @@ public class MyLinkedList {
 
     public int lastIndexOf(Object o) {
         int count = 0;
-        int index = 0;
+        int index = -1;
         Node curNode = head;
-        if (head.getValue() == o) {
+        if (head.getValue().equals(o)) {
             count++;
             index = count;
         }
-            while ((curNode = curNode.getNext()) != o) {
-                count++;
-                if (curNode.getValue() == o){
-                    break;
-                }
+        while ((curNode = curNode.getNext()) != null) {
+            count++;
+            if (curNode.getValue().equals(o)) {
                 index = count;
             }
-            while ((curNode = curNode.getNext()) != null) {
-                count++;
-                if (curNode.getValue() == o) {
-                    index = count;
-                }
-            }
+        }
         return index;
     }
 

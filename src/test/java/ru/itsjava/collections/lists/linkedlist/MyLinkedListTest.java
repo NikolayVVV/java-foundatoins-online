@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("Класс MyLinkedListTest должен ")
 public class MyLinkedListTest {
@@ -23,20 +24,21 @@ public class MyLinkedListTest {
     @Test
     public void shouldHaveCheckTheArrayForThePresenceOfObjects() {
         assertEquals(true, DEFAULT_LIST.isEmpty());
+        assertEquals(0, DEFAULT_LIST.size());
     }
 
     @DisplayName(" корректно проверять массив на наличие определенного объекта")
     @Test
     public void shouldHaveCheckTheArrayForThePresenceOfSpecificObject() {
         DEFAULT_LIST.add("element1");
-        assertEquals("element1", DEFAULT_LIST.get(0));
+        assertEquals(true, DEFAULT_LIST.contains("element1"));
     }
 
     @DisplayName(" корректно добавлять элемент в массив")
     @Test
     public void shouldHaveCorrectAddElementToArray() {
         DEFAULT_LIST.add("element3");
-        assertEquals("element3", DEFAULT_LIST.get(0));
+        assertTrue(DEFAULT_LIST.contains("element3"));
         assertEquals(1, DEFAULT_LIST.size());
     }
 
@@ -47,6 +49,7 @@ public class MyLinkedListTest {
         DEFAULT_LIST.remove("element1");
         assertEquals(true, DEFAULT_LIST.isEmpty());
         assertEquals(0, DEFAULT_LIST.size());
+        assertEquals(false, DEFAULT_LIST.contains("element1"));
     }
 
     @DisplayName(" корректно удалять все элементы в массиве")
@@ -63,6 +66,7 @@ public class MyLinkedListTest {
     @Test
     public void shouldHaveCorrectGetElementFromArrayOnIndex() {
         DEFAULT_LIST.add("element1");
+        DEFAULT_LIST.add("element2");
         assertEquals("element1", DEFAULT_LIST.get(0));
     }
 
@@ -77,7 +81,10 @@ public class MyLinkedListTest {
     @DisplayName(" корректно добавлять элемент в массив по индексу")
     @Test
     public void shouldHaveCorrectAddElementToArrayOnIndex() {
-        //не реализован
+        DEFAULT_LIST.add("elem1");
+        DEFAULT_LIST.add("elem2");
+        DEFAULT_LIST.add(1, "elem3");
+        assertEquals("elem3", DEFAULT_LIST.get(1));
     }
 
     @DisplayName(" корректно удалять элемент из массива по индексу")
@@ -87,6 +94,8 @@ public class MyLinkedListTest {
         DEFAULT_LIST.add("element2");
         DEFAULT_LIST.remove(0);
         assertEquals("element2", DEFAULT_LIST.get(0));
+        assertEquals(false, DEFAULT_LIST.contains("element1"));
+        assertEquals(1, DEFAULT_LIST.size());
     }
 
     @DisplayName(" корректно получать индекс указанного элемента из массива")
