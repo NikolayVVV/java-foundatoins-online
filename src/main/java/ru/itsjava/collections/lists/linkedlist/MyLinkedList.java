@@ -29,13 +29,13 @@ public class MyLinkedList {
 
     public boolean contains(Object o) {
         if (head == null) return false;
-        if (head.getValue().equals(o)) return true;
+//        if (head.getValue().equals(o)) return true;
         Node curNode = head;
-        while (!(curNode.getNext() == null)) {
-            curNode = curNode.getNext();
+        while (!(curNode == null)) {
             if (curNode.getValue().equals(o)) {
                 return true;
             }
+            curNode = curNode.getNext();
         }
         return false;
     }
@@ -85,6 +85,12 @@ public class MyLinkedList {
     }
 
     public void clear() {
+        Node prevnode = head;
+        Node curnode = head;
+        while ((curnode = curnode.getNext()) != null) {
+            prevnode.setNext(null);
+            prevnode = curnode;
+        }
         head = null;
     }
 
@@ -125,22 +131,22 @@ public class MyLinkedList {
     }
 
     public void add(int index, Object element) {
-        checkIndex(index);
         Node resNode = new Node(element, head);
         if (index == 0) {
             head = resNode;
         } else {
+            checkIndex(index);
             Node curNode = head;
-            Node prevNode = head;
+            //Node prevNode = head;
             int count = 0;
             while ((curNode = curNode.getNext()) != null) {
                 count++;
-                if (count == index) {
+                if (count == index - 1) {
                     break;
                 }
             }
-            resNode.setNext(prevNode.getNext());
-            prevNode.setNext(resNode);
+            resNode.setNext(curNode.getNext());
+            curNode.setNext(resNode);
         }
     }
 

@@ -44,18 +44,23 @@ public class MapPractice {
         Man irina = new Man("Ирина");
         Man stanislav = new Man("Стас");
         Man roman = new Man("Роман");
-        customers.put(nikolay, "banana");//1.Вставка элементов: а). Добавить 5 фруктов
-        customers.put(vlad, "lime");
-        customers.put(irina, "melon");
-        customers.put(stanislav, "pineapple");
-        customers.put(roman, "peach");
+        Fruit banana = new Fruit("banana", 200);
+        Fruit lime = new Fruit("lime", 100);
+        Fruit melon = new Fruit("melon", 400);
+        Fruit pineapple = new Fruit("pineapple", 1150);
+        Fruit peach = new Fruit("peach", 1500);
+        customers.put(nikolay, banana.getName() + " " + banana.getWeight());//1.Вставка элементов: а). Добавить 5 фруктов
+        customers.put(vlad, lime.getName() + " " + lime.getWeight());
+        customers.put(irina, melon.getName() + " " + melon.getWeight());
+        customers.put(stanislav, pineapple.getName() + " " + pineapple.getWeight());
+        customers.put(roman, peach.getName() + " " + peach.getWeight());
         System.out.println("customers = " + customers);
         customers.putAll(men);//б). В новый экземпляр HashMap добавим старую карту
         System.out.println("customers = " + customers);
         System.out.println("customers.get(irina) = " + customers.get(irina));//2. Получение элемента по ключу
         // (Получить любой фрукт по покупателю)
-        System.out.println("customers.remove(stanislav, \"pineapple\") = "
-                + customers.remove(stanislav, "pineapple"));//3. Удаление элемента
+        System.out.println("customers.remove(\"stanislav\") = "
+                + customers.remove(stanislav));//3. Удаление элемента
         //а). Удалить любой фрукт
         System.out.println("customers.containsKey(stanislav) = " //4. Проверка на наличие ключ и значение
                 + customers.containsKey(stanislav));//(Есть ли покупатель с таким фруктом)

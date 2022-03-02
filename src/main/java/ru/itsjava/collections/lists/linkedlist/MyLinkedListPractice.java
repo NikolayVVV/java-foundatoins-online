@@ -47,7 +47,11 @@ public class MyLinkedListPractice {
 //        System.out.println("list = " + list);
 //        list.add(0,"ELEM6");
 //        System.out.println("list = " + list);
-        System.out.println("list.contains(\"elem1\") = " + list.contains("elem1"));
+//        list.add("elem1");
+//        list.add("elem2");
+        list.add("elem3");
+        list.add(0,"ELEM4");
+        System.out.println("list = " + list);
 
 
     }
