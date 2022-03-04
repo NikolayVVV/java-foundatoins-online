@@ -38,7 +38,7 @@ public class MapPractice {
 //        System.out.println("men.size() = " + men.size());
 
         //Фрукты
-        Map<Man, String> customers = new HashMap<>();//0. Создать экземпляр HashMap (Ключ Имя покупателя Значение Фрукт)
+        Map<Man, Fruit> customers = new HashMap<>();//0. Создать экземпляр HashMap (Ключ Имя покупателя Значение Фрукт)
         Man nikolay = new Man("Николай");
         Man vlad = new Man("Влад");
         Man irina = new Man("Ирина");
@@ -49,13 +49,18 @@ public class MapPractice {
         Fruit melon = new Fruit("melon", 400);
         Fruit pineapple = new Fruit("pineapple", 1150);
         Fruit peach = new Fruit("peach", 1500);
-        customers.put(nikolay, banana.getName() + " " + banana.getWeight());//1.Вставка элементов: а). Добавить 5 фруктов
-        customers.put(vlad, lime.getName() + " " + lime.getWeight());
-        customers.put(irina, melon.getName() + " " + melon.getWeight());
-        customers.put(stanislav, pineapple.getName() + " " + pineapple.getWeight());
-        customers.put(roman, peach.getName() + " " + peach.getWeight());
+
+        customers.put(nikolay, banana);
+        customers.put(vlad, lime);
+        customers.put(irina, melon);
+        customers.put(stanislav, pineapple);
+        customers.put(roman, peach);
         System.out.println("customers = " + customers);
-        customers.putAll(men);//б). В новый экземпляр HashMap добавим старую карту
+        Map<Man, Fruit> menWithFruits = new HashMap<>();
+        menWithFruits.put(ivanov, banana);
+        menWithFruits.put(sidorov, lime);
+        menWithFruits.put(javov, peach);
+        customers.putAll(menWithFruits);//б). В новый экземпляр HashMap добавим старую карту
         System.out.println("customers = " + customers);
         System.out.println("customers.get(irina) = " + customers.get(irina));//2. Получение элемента по ключу
         // (Получить любой фрукт по покупателю)
@@ -67,7 +72,7 @@ public class MapPractice {
 
         //5. Вывод Map на экран:
         //a) Вывести все ключи (всех покупателей)
-        for (Map.Entry<Man, String> pair : customers.entrySet()) {
+        for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
             System.out.println("Key: " + pair.getKey());
         }
 
@@ -78,7 +83,7 @@ public class MapPractice {
         }
 
         //в) Вывести все ключи и значения с помощью entrySet (всех покупателей и фрукты)
-        for (Map.Entry<Man, String> pair : customers.entrySet()) {
+        for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
             System.out.println("Key: " + pair.getKey() + " value: " + pair.getValue());
         }
 
