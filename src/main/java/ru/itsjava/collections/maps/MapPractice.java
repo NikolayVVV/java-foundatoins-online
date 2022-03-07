@@ -49,17 +49,19 @@ public class MapPractice {
         Fruit melon = new Fruit("melon", 400);
         Fruit pineapple = new Fruit("pineapple", 1150);
         Fruit peach = new Fruit("peach", 1500);
+        Fruit watermelon = new Fruit("watermelon", 2000);
 
         customers.put(nikolay, banana);
         customers.put(vlad, lime);
         customers.put(irina, melon);
         customers.put(stanislav, pineapple);
         customers.put(roman, peach);
+        customers.put(roman, watermelon);
         System.out.println("customers = " + customers);
         Map<Man, Fruit> menWithFruits = new HashMap<>();
         menWithFruits.put(ivanov, banana);
         menWithFruits.put(sidorov, lime);
-        menWithFruits.put(javov, peach);
+        menWithFruits.put(javov, watermelon);
         customers.putAll(menWithFruits);//б). В новый экземпляр HashMap добавим старую карту
         System.out.println("customers = " + customers);
         System.out.println("customers.get(irina) = " + customers.get(irina));//2. Получение элемента по ключу
@@ -86,6 +88,65 @@ public class MapPractice {
         for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
             System.out.println("Key: " + pair.getKey() + " value: " + pair.getValue());
         }
+
+        System.out.println("6. Отфильтровать Map вернуть записи по некоторому условию:");
+        {
+            int count = 0;
+            for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
+                if (pair.getKey().getName().length() > 5)
+                    count++;
+            }
+            System.out.println("Количество ключей длина которых больше 5: " + count);
+        }
+        System.out.println("----------------------------------------------------");
+        System.out.println("б) Условие на значение: ");
+        {
+            int count = 0;
+            for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
+                if (pair.getValue().getName().equals("melon"))
+                    count++;
+            }
+            System.out.println("количество фруктов, которые равны дыне: " + count);
+        }
+        System.out.println("----------------------------------------------------");
+        System.out.println("7. Пропустить несколько элементов ");
+        System.out.println("а)Пропустить 2 элемента, значения которых Арбуз, все остальные вывести: ");
+        for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
+            if (pair.getValue().getName().equals("watermelon")) {
+                continue;
+            }
+            System.out.println(pair.getValue().getName());
+        }
+        System.out.println("б) Вывести все кроме 2 элементов, ключи которых начинаются на И: ");
+        for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
+            if (pair.getKey().getName().contains("И")) {
+                continue;
+            }
+            System.out.println(pair.getKey().getName());
+        }
+        System.out.println("8.а) Возвращаем элемент значение которого арбуз или Арбуз или АРбУз.");
+        for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
+            if (pair.getValue().getName().equalsIgnoreCase("watermelon")) {
+                System.out.println(pair.getValue().getName() + pair.getKey());
+            }
+        }
+        Map<Man, Fruit> mensWithFruits2 = new HashMap<>();
+        System.out.println("9.а) Возвращаем все элементы в другую карту, которые являются дыней или арбузом");
+        for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
+            if (pair.getValue().getName().equalsIgnoreCase("watermelon") ||
+                    pair.getValue().getName().equalsIgnoreCase("melon")) {
+                mensWithFruits2.put(pair.getKey(), pair.getValue());
+            }
+        }
+        System.out.println("mensWithFruits2 = " + mensWithFruits2);
+        System.out.println("mensWithFruits2.size() = " + mensWithFruits2.size());
+        int count = 0;
+        int sum = 0;
+        for (Map.Entry<Man, Fruit> pair2 : mensWithFruits2.entrySet()) {
+            count++;
+            sum = sum + pair2.getValue().getWeight();
+        }
+        System.out.println("10. Найти средний вес всех фруктов: " + sum / count);
 
 
     }
