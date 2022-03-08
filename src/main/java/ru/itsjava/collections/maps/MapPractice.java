@@ -55,11 +55,11 @@ public class MapPractice {
         customers.put(vlad, lime);
         customers.put(irina, melon);
         customers.put(stanislav, pineapple);
-        customers.put(roman, peach);
+//        customers.put(roman, peach);
         customers.put(roman, watermelon);
         System.out.println("customers = " + customers);
         Map<Man, Fruit> menWithFruits = new HashMap<>();
-        menWithFruits.put(ivanov, banana);
+        menWithFruits.put(ivanov, watermelon);
         menWithFruits.put(sidorov, lime);
         menWithFruits.put(javov, watermelon);
         customers.putAll(menWithFruits);//б). В новый экземпляр HashMap добавим старую карту
@@ -111,23 +111,37 @@ public class MapPractice {
         System.out.println("----------------------------------------------------");
         System.out.println("7. Пропустить несколько элементов ");
         System.out.println("а)Пропустить 2 элемента, значения которых Арбуз, все остальные вывести: ");
-        for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
-            if (pair.getValue().getName().equals("watermelon")) {
-                continue;
+        {
+            int count = 0;
+            for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
+                if (count >= 2) {
+                    System.out.println(pair.getValue().getName());
+                } else if (pair.getValue().getName().equals("watermelon")) {
+                    count++;
+                    continue;
+                } else {
+                    System.out.println(pair.getValue().getName());
+                }
             }
-            System.out.println(pair.getValue().getName());
         }
         System.out.println("б) Вывести все кроме 2 элементов, ключи которых начинаются на И: ");
-        for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
-            if (pair.getKey().getName().contains("И")) {
-                continue;
+        {
+            int count = 0;
+            for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
+                if (count >= 2) {
+                    pair.getKey().getName();
+                } else if (pair.getKey().getName().contains("И")) {
+                    count++;
+                    continue;
+                } else {
+                    System.out.println(pair.getKey().getName());
+                }
             }
-            System.out.println(pair.getKey().getName());
         }
         System.out.println("8.а) Возвращаем элемент значение которого арбуз или Арбуз или АРбУз.");
         for (Map.Entry<Man, Fruit> pair : customers.entrySet()) {
             if (pair.getValue().getName().equalsIgnoreCase("watermelon")) {
-                System.out.println(pair.getValue().getName() + pair.getKey());
+                System.out.println(pair.getValue().getName() + " " + pair.getKey());
             }
         }
         Map<Man, Fruit> mensWithFruits2 = new HashMap<>();
