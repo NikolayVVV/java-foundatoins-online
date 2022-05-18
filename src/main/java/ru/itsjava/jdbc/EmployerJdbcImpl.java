@@ -28,7 +28,7 @@ public class EmployerJdbcImpl implements EmployerDao {
              PreparedStatement preparedStatement =
                      connection.prepareStatement("SELECT age FROM schema_online_course.employers where name = ?;")
         ) {
-            preparedStatement.setString(1, "tanya");
+            preparedStatement.setString(1, name);
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             return resultSet.getInt("age");
@@ -44,7 +44,7 @@ public class EmployerJdbcImpl implements EmployerDao {
              PreparedStatement preparedStatement =
                      connection.prepareStatement("SELECT age FROM schema_online_course.users where name = ?;")
         ) {
-            preparedStatement.setString(1, "nikolay");
+            preparedStatement.setString(1, name);
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             return resultSet.getInt("age");
