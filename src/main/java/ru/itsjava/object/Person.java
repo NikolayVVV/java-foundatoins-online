@@ -10,8 +10,8 @@ import lombok.RequiredArgsConstructor;
 public class Person {
 
     //поля
-    String name;
-    int age;
+    private String name;
+    private int age;
 
     //конструктор
 //    public Person(String name, int age) {
